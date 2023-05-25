@@ -1,3 +1,5 @@
+--Create a furniture store database
+
 CREATE TABLE Furniture_store_sales 
 (id INTEGER PRIMARY KEY, type TEXT, cost INTEGER, inventory INTEGER, sales INTEGER);
 
@@ -23,14 +25,15 @@ INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("lamp",
 INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("headboard", 199, 30, 179);
 INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("rug", 20, 40, 120);
 
+--how much furniture has an inventory of over 20 but less than 40?
 SELECT * FROM furniture_store_sales;
-
 SELECT * FROM furniture_store_sales WHERE inventory > 20 ORDER BY inventory;
 
 /* AND */
 
 SELECT * FROM furniture_store_sales WHERE inventory > 20 AND inventory < 40 ORDER BY inventory;
 
+--what items have total sales that are greater than 100?
 SELECT type, SUM(sales) AS total_sales FROM furniture_store_sales
 GROUP BY type
 HAVING total_sales > 100 ORDER BY sales;
