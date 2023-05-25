@@ -1,0 +1,36 @@
+CREATE TABLE Furniture_store_sales 
+(id INTEGER PRIMARY KEY, type TEXT, cost INTEGER, inventory INTEGER, sales INTEGER);
+
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("bed", 299, 30, 89);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("mattress", 750, 35, 102);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("table", 489, 19, 56);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("kitchen_chair", 79, 68, 158);
+INSERT INTO furniture_store_sales (type, cost,
+inventory, sales) VALUES ("desk", 99, 30, 132);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("bookcase", 349, 24, 30);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("cabinet", 75, 13, 40);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("stool", 25, 20, 67);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("futon", 289, 5, 20);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("hammock", 38, 14, 60);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("nightstand", 149, 38, 123);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("vanity_set", 488, 4, 20);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("sofa", 800, 5, 25);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("arm_chair", 199, 15, 60);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("recliner", 108, 20, 100);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("rocker", 19, 30, 200);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("dresser", 380, 3, 34);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("lamp", 28, 33, 56);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("headboard", 199, 30, 179);
+INSERT INTO furniture_store_sales (type, cost, inventory, sales) VALUES ("rug", 20, 40, 120);
+
+SELECT * FROM furniture_store_sales;
+
+SELECT * FROM furniture_store_sales WHERE inventory > 20 ORDER BY inventory;
+
+/* AND */
+
+SELECT * FROM furniture_store_sales WHERE inventory > 20 AND inventory < 40 ORDER BY inventory;
+
+SELECT type, SUM(sales) AS total_sales FROM furniture_store_sales
+GROUP BY type
+HAVING total_sales > 100 ORDER BY sales;
