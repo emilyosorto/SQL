@@ -1,0 +1,36 @@
+--Create a database on famous singers
+
+CREATE TABLE famous_singers
+(id INTEGER PRIMARY KEY,
+first_name TEXT,
+last_name TEXT);
+
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (1, "Michael","Jackson");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (2, "Elvis", "Presley");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (3, "Stevie", "Wonder");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (4, "Frank", "Sinatra");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (5, "Marvin", "Gaye");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (6, "Mariah", "Carey");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (7, "Aretha", "Franklin");
+INSERT INTO famous_singers (id, first_name, last_name) VALUES (8, "John", "Lennon");
+
+CREATE TABLE singers_songs
+(id INTEGER PRIMARY KEY,
+most_listened TEXT,
+amount_listened INTEGER);
+
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Billie_jean", 656000);
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Can't_help_falling_in_love", 90000000); 
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Superstition", 489000);
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Fly_me_to_the_moon", 704000);
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Let's_get_it_on", 1000000);
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("All_i_want_for_christmas_is_you", 21000000);
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Respect", 800000);
+INSERT INTO singers_songs (most_listened, amount_listened) VALUES ("Imagine", 2000000);
+
+--how can we view a singers most listened to song?
+
+SELECT * FROM famous_singers;
+SELECT famous_singers.first_name, famous_singers.last_name, most_listened FROM famous_singers
+JOIN singers_songs
+ON famous_singers.id = singers_songs.id;
